@@ -1,0 +1,29 @@
+<assembly>
+    <id>deploy</id>
+    <baseDirectory>${warName}</baseDirectory>
+    <formats>
+        <format>tgz</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>ddns-server-web/target/exploded/${warName}</directory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+        <fileSet>
+            <directory>apps</directory>
+            <includes>
+                <include>**</include>
+            </includes>
+            <excludes>
+                <exclude>**/target/**</exclude>
+                <exclude>**/classes/**</exclude>
+                <exclude>**/*.iml</exclude>
+            </excludes>
+            <outputDirectory>apps</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
