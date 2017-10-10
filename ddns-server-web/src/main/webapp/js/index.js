@@ -5,6 +5,8 @@
 var body = $('body');
 var mainTable = body.find('#mainTable');
 
+var addRecordForm = $('#addRecordForm');
+
 $(document).ready(function () {
     getDnsRecord();
 });
@@ -32,4 +34,11 @@ function fillDnsRecord(data) {
             .append($('<td>').text(dnsARecord['ip']))
             .append($('<td>')));
     });
+}
+
+function addDnsRecord() {
+    var ajaxData = addRecordForm.serializeArray();
+    var now = moment().format(datePattern);
+    ajaxData.push({'name': 'token', 'value': now});
+    sendAjax('dns/write/writeDnsARecord', ajaxData, true);
 }
