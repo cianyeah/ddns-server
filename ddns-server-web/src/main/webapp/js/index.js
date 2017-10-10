@@ -3,7 +3,7 @@
  */
 
 var body = $('body');
-var mainContent = body.find('#mainContent');
+var mainTable = body.find('#mainTable');
 
 $(document).ready(function () {
     getDnsRecord();
@@ -23,7 +23,7 @@ function fillDnsRecord(data) {
         return;
     }
 
-    var tbody = mainContent.find('tbody');
+    var tbody = mainTable.find('tbody');
     var dnsARecordSet = data['successInfo'];
     $.each(dnsARecordSet, function (index, dnsARecord) {
         tbody.append($('<tr>')
