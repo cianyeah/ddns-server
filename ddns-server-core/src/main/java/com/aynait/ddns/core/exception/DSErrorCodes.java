@@ -22,7 +22,8 @@ public enum DSErrorCodes {
      * 参数校验
      */
     RECORD_DOMAIN_ERROR(30000, "域名不能为空"),
-    RECORD_IP_ERROR(30001, "IP地址不能为空"),;
+    RECORD_IP_ERROR(30001, "IP地址不能为空"),
+    RECORD_TOKEN_ERROR(30002, "Token校验失败"),;
 
     private int code;
 

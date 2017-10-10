@@ -24,6 +24,11 @@ public class DSConstant {
     public static final String ISO_8859_1 = "ISO-8859-1";
 
     /**
+     * 日期格式
+     */
+    public static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+
+    /**
      * zone文件
      */
     public static final String AYNAIT_COM_PATH = "/var/named/";

@@ -3,7 +3,9 @@ package com.aynait.ddns.web.controller;
 import com.aynait.ddns.core.exception.DSErrorCodes;
 import com.aynait.ddns.core.manager.DnsWriteManager;
 import com.aynait.ddns.web.util.ErrorTextUtil;
+import com.aynait.ddns.web.util.TokenValidator;
 import com.aynait.ddns.web.vo.ResultVO;
+import com.aynait.ddns.web.vo.UpdateARecordVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,12 +25,19 @@ public class DnsWriteController {
 
     @RequestMapping(value = "writeDnsARecord")
     @ResponseBody
-    public ResultVO writeDnsARecord(String domain, String ip) {
+    public ResultVO writeDnsARecord(UpdateARecordVO updateARecordVO) {
+        String domain = updateARecordVO.getDomain();
+        String ip = updateARecordVO.getIp();
+        String token = updateARecordVO.getToken();
+
         if (StringUtils.isBlank(domain)) {
             return ResultVO.newErrorResult(DSErrorCodes.RECORD_DOMAIN_ERROR);
         }
         if (StringUtils.isBlank(ip)) {
             return ResultVO.newErrorResult(DSErrorCodes.RECORD_IP_ERROR);
+        }
+        if (!TokenValidator.checkToken(token)) {
+            return ResultVO.newErrorResult(DSErrorCodes.RECORD_TOKEN_ERROR);
         }
 
         try {
