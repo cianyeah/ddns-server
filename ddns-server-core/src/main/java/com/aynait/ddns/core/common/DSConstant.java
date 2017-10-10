@@ -28,7 +28,8 @@ public class DSConstant {
      */
     public static final String AYNAIT_COM_PATH = "/var/named/";
     public static final String AYNAIT_COM_NAME = "ddns.aynait.com.zone";
-    public static final String AYNAIT_COM_FILE = AYNAIT_COM_PATH + AYNAIT_COM_NAME;
+    // public static final String AYNAIT_COM_FILE = AYNAIT_COM_PATH + AYNAIT_COM_NAME;
+    public static final String AYNAIT_COM_FILE = "/tmp/" + AYNAIT_COM_NAME;
 
     /**
      * zone文件配置

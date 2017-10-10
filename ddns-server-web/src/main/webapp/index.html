@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="robots" content="none"/>
+
+    <title>DDNS配置管理</title>
+
+    <link rel="shortcut icon" href="/ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/index.css"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script defer type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+<div class="center-block">
+    <table class="table table-bordered table-condensed table-striped" id="mainContent">
+        <thead>
+        <tr>
+            <th>记录类型</th>
+            <th>主机记录</th>
+            <th>记录值</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                <select class="form-control" name="type" title="记录类型">
+                    <option value="A" selected>A</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" class="form-control" name="domain" title="主机记录" placeholder="*.ddns.aynait.com"/>
+            </td>
+            <td>
+                <input type="text" class="form-control" name="ip" title="记录值" placeholder="0.0.0.0"/>
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary btn-sm">新增</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>

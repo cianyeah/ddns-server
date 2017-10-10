@@ -1,0 +1,8 @@
+#mainContent {
+    margin: 6% 10% 6% 10%;
+    max-width: 80%;
+}
+
+#mainContent thead th {
+    min-width: 70px;
+}
