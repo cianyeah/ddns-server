@@ -7,7 +7,6 @@ import com.aynait.ddns.web.vo.ResultVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -22,7 +21,7 @@ public class DnsWriteController {
     @Resource
     private DnsWriteManager dnsWriteManager;
 
-    @RequestMapping(value = "writeDnsARecord", method = RequestMethod.POST)
+    @RequestMapping(value = "writeDnsARecord")
     @ResponseBody
     public ResultVO writeDnsARecord(String domain, String ip) {
         if (StringUtils.isBlank(domain)) {
