@@ -17,12 +17,12 @@ import static com.aynait.ddns.core.common.DSConstant.*;
  * Created by Tianya on 2017/9/30.
  */
 @Service
-public class DnsWriteManager extends DnsManager {
+public class DnsAddManager extends DnsManager {
 
     @Resource
     private DnsReadManager dnsReadManager;
 
-    public void writeARecord(String domain, String ip) {
+    public void addARecord(String domain, String ip) {
         super.checkFileExists();
 
         stopNamed();
@@ -36,7 +36,7 @@ public class DnsWriteManager extends DnsManager {
         ) {
             if (fl == null) {
                 Thread.sleep(3000L);
-                writeARecord(domain, ip);
+                addARecord(domain, ip);
                 return;
             }
 

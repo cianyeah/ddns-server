@@ -12,7 +12,7 @@ $(document).ready(function () {
 });
 
 function getDnsRecord() {
-    sendAjax('dns/read/getDnsARecord', null, true, 'fillDnsRecord(data)');
+    sendAjax('dns/getDnsARecord', null, true, 'fillDnsRecord(data)');
 }
 
 function fillDnsRecord(data) {
@@ -40,5 +40,5 @@ function addDnsRecord() {
     var ajaxData = addRecordForm.serializeArray();
     var now = moment().format(datePattern);
     ajaxData.push({'name': 'token', 'value': now});
-    sendAjax('dns/write/writeDnsARecord', ajaxData, true);
+    sendAjax('dns/addDnsARecord', ajaxData, true);
 }

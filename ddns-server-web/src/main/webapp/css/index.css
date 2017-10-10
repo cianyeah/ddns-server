@@ -4,3 +4,8 @@
     margin-right: auto;
     margin-top: 6%;
 }
+
+#mainTable tbody td {
+    height: 46px;
+    line-height: 2.3;
+}

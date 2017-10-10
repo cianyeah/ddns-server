@@ -1,0 +1,229 @@
+.btn-primary:hover {
+    -webkit-animation: buttonPrimary 1s;
+    -o-animation: buttonPrimary 1s;
+    animation: buttonPrimary 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.btn-success:hover {
+    -webkit-animation: buttonSuccess 1s;
+    -o-animation: buttonSuccess 1s;
+    animation: buttonSuccess 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.btn-info:hover {
+    -webkit-animation: buttonInfo 1s;
+    -o-animation: buttonInfo 1s;
+    animation: buttonInfo 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.btn-warning:hover {
+    -webkit-animation: buttonWarning 1s;
+    -o-animation: buttonWarning 1s;
+    animation: buttonWarning 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+.btn-danger:hover {
+    -webkit-animation: buttonDanger 1s;
+    -o-animation: buttonDanger 1s;
+    animation: buttonDanger 1s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-iteration-count: infinite;
+    -o-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes buttonPrimary {
+    50% {
+        background-color: #3379B5;
+        -webkit-box-shadow: 0 0 5px #3379B5;
+        -moz-box-shadow: 0 0 5px #3379B5;
+        box-shadow: 0 0 5px #3379B5;
+    }
+}
+
+@-moz-keyframes buttonPrimary {
+    50% {
+        background-color: #3379B5;
+        -webkit-box-shadow: 0 0 5px #3379B5;
+        -moz-box-shadow: 0 0 5px #3379B5;
+        box-shadow: 0 0 5px #3379B5;
+    }
+}
+
+@-o-keyframes buttonPrimary {
+    50% {
+        background-color: #3379B5;
+        -webkit-box-shadow: 0 0 5px #3379B5;
+        -moz-box-shadow: 0 0 5px #3379B5;
+        box-shadow: 0 0 5px #3379B5;
+    }
+}
+
+@keyframes buttonPrimary {
+    50% {
+        background-color: #3379B5;
+        -webkit-box-shadow: 0 0 5px #3379B5;
+        -moz-box-shadow: 0 0 5px #3379B5;
+        box-shadow: 0 0 5px #3379B5;
+    }
+}
+
+@-webkit-keyframes buttonSuccess {
+    50% {
+        background-color: #3B9C96;
+        -webkit-box-shadow: 0 0 5px #3B9C96;
+        -moz-box-shadow: 0 0 5px #3B9C96;
+        box-shadow: 0 0 5px #3B9C96;
+    }
+}
+
+@-moz-keyframes buttonSuccess {
+    50% {
+        background-color: #3B9C96;
+        -webkit-box-shadow: 0 0 5px #3B9C96;
+        -moz-box-shadow: 0 0 5px #3B9C96;
+        box-shadow: 0 0 5px #3B9C96;
+    }
+}
+
+@-o-keyframes buttonSuccess {
+    50% {
+        background-color: #3B9C96;
+        -webkit-box-shadow: 0 0 5px #3B9C96;
+        -moz-box-shadow: 0 0 5px #3B9C96;
+        box-shadow: 0 0 5px #3B9C96;
+    }
+}
+
+@keyframes buttonSuccess {
+    50% {
+        background-color: #3B9C96;
+        -webkit-box-shadow: 0 0 5px #3B9C96;
+        -moz-box-shadow: 0 0 5px #3B9C96;
+        box-shadow: 0 0 5px #3B9C96;
+    }
+}
+
+@-webkit-keyframes buttonInfo {
+    50% {
+        background-color: #68B4F1;
+        -webkit-box-shadow: 0 0 5px #68B4F1;
+        -moz-box-shadow: 0 0 5px #68B4F1;
+        box-shadow: 0 0 5px #68B4F1;
+    }
+}
+
+@-moz-keyframes buttonInfo {
+    50% {
+        background-color: #68B4F1;
+        -webkit-box-shadow: 0 0 5px #68B4F1;
+        -moz-box-shadow: 0 0 5px #68B4F1;
+        box-shadow: 0 0 5px #68B4F1;
+    }
+}
+
+@-o-keyframes buttonInfo {
+    50% {
+        background-color: #68B4F1;
+        -webkit-box-shadow: 0 0 5px #68B4F1;
+        -moz-box-shadow: 0 0 5px #68B4F1;
+        box-shadow: 0 0 5px #68B4F1;
+    }
+}
+
+@keyframes buttonInfo {
+    50% {
+        background-color: #68B4F1;
+        -webkit-box-shadow: 0 0 5px #68B4F1;
+        -moz-box-shadow: 0 0 5px #68B4F1;
+        box-shadow: 0 0 5px #68B4F1;
+    }
+}
+
+@-webkit-keyframes buttonWarning {
+    50% {
+        background-color: #DAAE2b;
+        -webkit-box-shadow: 0 0 5px #DAAE2b;
+        -moz-box-shadow: 0 0 5px #DAAE2b;
+        box-shadow: 0 0 5px #DAAE2b;
+    }
+}
+
+@-moz-keyframes buttonWarning {
+    50% {
+        background-color: #DAAE2b;
+        -webkit-box-shadow: 0 0 5px #DAAE2b;
+        -moz-box-shadow: 0 0 5px #DAAE2b;
+        box-shadow: 0 0 5px #DAAE2b;
+    }
+}
+
+@-o-keyframes buttonWarning {
+    50% {
+        background-color: #DAAE2b;
+        -webkit-box-shadow: 0 0 5px #DAAE2b;
+        -moz-box-shadow: 0 0 5px #DAAE2b;
+        box-shadow: 0 0 5px #DAAE2b;
+    }
+}
+
+@keyframes buttonWarning {
+    50% {
+        background-color: #DAAE2b;
+        -webkit-box-shadow: 0 0 5px #DAAE2b;
+        -moz-box-shadow: 0 0 5px #DAAE2b;
+        box-shadow: 0 0 5px #DAAE2b;
+    }
+}
+
+@-webkit-keyframes buttonDanger {
+    50% {
+        background-color: #F1353D;
+        -webkit-box-shadow: 0 0 5px #F1353D;
+        -moz-box-shadow: 0 0 5px #F1353D;
+        box-shadow: 0 0 5px #F1353D;
+    }
+}
+
+@-moz-keyframes buttonDanger {
+    50% {
+        background-color: #F1353D;
+        -webkit-box-shadow: 0 0 5px #F1353D;
+        -moz-box-shadow: 0 0 5px #F1353D;
+        box-shadow: 0 0 5px #F1353D;
+    }
+}
+
+@-o-keyframes buttonDanger {
+    50% {
+        background-color: #F1353D;
+        -webkit-box-shadow: 0 0 5px #F1353D;
+        -moz-box-shadow: 0 0 5px #F1353D;
+        box-shadow: 0 0 5px #F1353D;
+    }
+}
+
+@keyframes buttonDanger {
+    50% {
+        background-color: #F1353D;
+        -webkit-box-shadow: 0 0 5px #F1353D;
+        -moz-box-shadow: 0 0 5px #F1353D;
+        box-shadow: 0 0 5px #F1353D;
+    }
+}

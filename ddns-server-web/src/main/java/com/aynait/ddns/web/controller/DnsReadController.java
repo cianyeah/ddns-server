@@ -15,7 +15,7 @@ import java.util.Set;
  * Created by Tianya on 2017/10/10.
  */
 @Controller
-@RequestMapping(value = "dns/read")
+@RequestMapping(value = "dns")
 public class DnsReadController {
 
     @Resource

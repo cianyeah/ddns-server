@@ -1,7 +1,7 @@
 package com.aynait.ddns.web.controller;
 
 import com.aynait.ddns.core.exception.DSErrorCodes;
-import com.aynait.ddns.core.manager.DnsWriteManager;
+import com.aynait.ddns.core.manager.DnsAddManager;
 import com.aynait.ddns.web.util.ErrorTextUtil;
 import com.aynait.ddns.web.util.TokenValidator;
 import com.aynait.ddns.web.vo.ResultVO;
@@ -17,15 +17,15 @@ import javax.annotation.Resource;
  * Created by Tianya on 2017/10/10.
  */
 @Controller
-@RequestMapping(value = "dns/write")
-public class DnsWriteController {
+@RequestMapping(value = "dns")
+public class DnsAddController {
 
     @Resource
-    private DnsWriteManager dnsWriteManager;
+    private DnsAddManager dnsAddManager;
 
-    @RequestMapping(value = "writeDnsARecord")
+    @RequestMapping(value = "addDnsARecord")
     @ResponseBody
-    public ResultVO writeDnsARecord(UpdateARecordVO updateARecordVO) {
+    public ResultVO addDnsARecord(UpdateARecordVO updateARecordVO) {
         String domain = updateARecordVO.getDomain();
         String ip = updateARecordVO.getIp();
         String token = updateARecordVO.getToken();
@@ -41,7 +41,7 @@ public class DnsWriteController {
         }
 
         try {
-            dnsWriteManager.writeARecord(domain, ip);
+            dnsAddManager.addARecord(domain, ip);
             return ResultVO.newSuccessResult();
         } catch (Exception e) {
             return ResultVO.newErrorResult(ErrorTextUtil.getErrorText(e));
