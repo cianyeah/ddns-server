@@ -18,7 +18,7 @@
     <properties>
         <finalName>ddns-server</finalName>
         <warName>${finalName}.war</warName>
-        <spring.version>4.3.11.RELEASE</spring.version>
+        <springframework.version>4.3.11.RELEASE</springframework.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -45,6 +45,20 @@
                 <version>${springframework.version}</version>
             </dependency>
             <!-- Spring -->
+
+            <!-- Apache -->
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>3.2.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.5</version>
+            </dependency>
+            <!-- Apache -->
 
             <dependency>
                 <groupId>org.projectlombok</groupId>
