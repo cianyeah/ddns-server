@@ -16,7 +16,13 @@ public enum DSErrorCodes {
     /**
      * 文件校验
      */
-    FILE_NOT_EXISTS(20000, "文件不存在"),;
+    FILE_NOT_EXISTS(20000, "文件不存在"),
+
+    /**
+     * 参数校验
+     */
+    RECORD_DOMAIN_ERROR(30000, "域名不能为空"),
+    RECORD_IP_ERROR(30001, "IP地址不能为空"),;
 
     private int code;
 

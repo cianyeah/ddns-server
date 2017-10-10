@@ -21,6 +21,13 @@
         </dependency>
         <!-- Spring -->
 
+        <!-- Alibaba -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+        <!-- Alibaba -->
+
         <!-- Apache -->
         <dependency>
             <groupId>commons-collections</groupId>
