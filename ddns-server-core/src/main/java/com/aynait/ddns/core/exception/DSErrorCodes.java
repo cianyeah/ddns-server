@@ -17,6 +17,7 @@ public enum DSErrorCodes {
      * 文件校验
      */
     FILE_NOT_EXISTS(20000, "文件不存在"),
+    FILE_LOCK_ERROR(20001, "文件锁定失败"),
 
     /**
      * 参数校验

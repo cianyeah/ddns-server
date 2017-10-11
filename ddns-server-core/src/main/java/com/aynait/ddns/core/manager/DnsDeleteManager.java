@@ -3,15 +3,17 @@ package com.aynait.ddns.core.manager;
 import com.aynait.ddns.core.exception.DSException;
 import com.aynait.ddns.core.model.DnsARecord;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.util.Collections;
 import java.util.Set;
 
 /**
- * Created by Tianya on 2017/9/30.
+ * Created by Tianya on 2017/10/11.
  */
 @Service
-public class DnsAddManager extends DnsManager {
+public class DnsDeleteManager extends DnsManager {
 
     @Resource
     private DnsReadManager dnsReadManager;
@@ -20,9 +22,9 @@ public class DnsAddManager extends DnsManager {
     private DnsWriteManager dnsWriteManager;
 
     /**
-     * 添加DNS记录
+     * 删除DNS记录
      */
-    public void addARecord(String domain, String ip) throws Exception {
+    public void deleteARecord(String domain, String ip) throws Exception {
         //停止DNS服务
         super.stopNamed();
 
@@ -30,8 +32,10 @@ public class DnsAddManager extends DnsManager {
             try {
                 //获取最新的DNS记录
                 Set<DnsARecord> dnsARecordSet = fillNewARecord(domain, ip);
-                //写入DNS记录
-                dnsWriteManager.writeARecord(dnsARecordSet);
+                if (!CollectionUtils.isEmpty(dnsARecordSet)) {
+                    //写入DNS记录
+                    dnsWriteManager.writeARecord(dnsARecordSet);
+                }
                 break;
             } catch (DSException dsE) {
                 dsE.printStackTrace();
@@ -45,7 +49,7 @@ public class DnsAddManager extends DnsManager {
     }
 
     /**
-     * 添加新的DNS记录
+     * 删除指定的DNS记录
      */
     private Set<DnsARecord> fillNewARecord(String domain, String ip) {
         DnsARecord dnsARecord = new DnsARecord();
@@ -53,10 +57,10 @@ public class DnsAddManager extends DnsManager {
         dnsARecord.setIp(ip);
 
         Set<DnsARecord> dnsARecordSet = dnsReadManager.readARecord();
-        if (!dnsARecordSet.add(dnsARecord)) {
-            dnsARecordSet.remove(dnsARecord);
-            dnsARecordSet.add(dnsARecord);
+        if (!dnsARecordSet.contains(dnsARecord)) {
+            return Collections.emptySet();
         }
+        dnsARecordSet.remove(dnsARecord);
 
         return dnsARecordSet;
     }

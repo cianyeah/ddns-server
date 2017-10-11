@@ -5,7 +5,7 @@ import com.aynait.ddns.core.exception.DSException;
 
 import java.io.File;
 
-import static com.aynait.ddns.core.common.DSConstant.AYNAIT_COM_FILE;
+import static com.aynait.ddns.core.common.DSConstant.*;
 
 /**
  * Created by Tianya on 2017/10/10.
@@ -19,6 +19,30 @@ public abstract class DnsManager {
         File file = new File(AYNAIT_COM_FILE);
         if (!file.exists()) {
             throw new DSException(DSErrorCodes.FILE_NOT_EXISTS);
+        }
+    }
+
+    /**
+     * 停止DNS服务
+     */
+    protected void stopNamed() {
+        try {
+            Process process = Runtime.getRuntime().exec(EXEC_STOP_NAMED);
+            process.waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 启动DNS服务
+     */
+    protected void startNamed() {
+        try {
+            Process process = Runtime.getRuntime().exec(EXEC_START_NAMED);
+            process.waitFor();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
