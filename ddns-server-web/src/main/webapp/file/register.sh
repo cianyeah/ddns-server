@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # example
-# wget -q -P /tmp "http://register.sh" && chmod 777 /tmp/register.sh && bash /tmp/register.sh "domain"
+# wget -q -P /tmp "http://centos.aynait.com:48080/ddns-server/file/register.sh" && chmod 777 /tmp/register.sh && bash /tmp/register.sh "domain"
 
 domain=$1
 token=$(date "+%Y-%m-%d %H:%M:%S")
