@@ -3,7 +3,7 @@ package com.aynait.ddns.web.controller;
 import com.aynait.ddns.core.exception.DSErrorCodes;
 import com.aynait.ddns.core.manager.DnsDeleteManager;
 import com.aynait.ddns.web.util.ErrorTextUtil;
-import com.aynait.ddns.web.util.TokenValidator;
+import com.aynait.ddns.web.util.RequestValidator;
 import com.aynait.ddns.web.vo.ResultVO;
 import com.aynait.ddns.web.vo.UpdateARecordVO;
 import org.apache.commons.lang3.StringUtils;
@@ -35,7 +35,7 @@ public class DnsDeleteController {
         if (StringUtils.isBlank(ip)) {
             return ResultVO.newErrorResult(DSErrorCodes.RECORD_IP_ERROR);
         }
-        if (!TokenValidator.checkToken(token)) {
+        if (!RequestValidator.checkToken(token)) {
             return ResultVO.newErrorResult(DSErrorCodes.RECORD_TOKEN_ERROR);
         }
 

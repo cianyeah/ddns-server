@@ -3,7 +3,7 @@ package com.aynait.ddns.web.controller;
 import com.aynait.ddns.core.exception.DSErrorCodes;
 import com.aynait.ddns.core.manager.DnsAddManager;
 import com.aynait.ddns.web.util.ErrorTextUtil;
-import com.aynait.ddns.web.util.TokenValidator;
+import com.aynait.ddns.web.util.RequestValidator;
 import com.aynait.ddns.web.vo.ResultVO;
 import com.aynait.ddns.web.vo.UpdateARecordVO;
 import org.apache.commons.lang3.StringUtils;
@@ -40,10 +40,10 @@ public class DnsAddController {
         if (StringUtils.isBlank(domain)) {
             return ResultVO.newErrorResult(DSErrorCodes.RECORD_DOMAIN_ERROR);
         }
-        if (StringUtils.isBlank(ip)) {
+        if (!RequestValidator.checkIp(ip)) {
             return ResultVO.newErrorResult(DSErrorCodes.RECORD_IP_ERROR);
         }
-        if (!TokenValidator.checkToken(token)) {
+        if (!RequestValidator.checkToken(token)) {
             return ResultVO.newErrorResult(DSErrorCodes.RECORD_TOKEN_ERROR);
         }
 
