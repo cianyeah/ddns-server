@@ -26,7 +26,7 @@ public class RequestValidator {
             return false;
         }
         byte[] addr = IPAddressUtil.textToNumericFormatV4(ip);
-        return internalIp(addr);
+        return !internalIp(addr);
     }
 
     /**
