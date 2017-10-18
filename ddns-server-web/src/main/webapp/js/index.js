@@ -12,7 +12,7 @@ $(document).ready(function () {
 });
 
 function getDnsRecord() {
-    sendAjax('dns/getDnsARecord', null, true, 'fillDnsRecord(data)');
+    sendAjax('getDnsARecord', null, true, 'fillDnsRecord(data)');
 }
 
 function fillDnsRecord(data) {
@@ -46,7 +46,7 @@ function addDnsRecord() {
     var ajaxData = addRecordForm.serializeArray();
     var now = moment().format(datePattern);
     ajaxData.push({'name': 'token', 'value': now});
-    sendAjax('dns/addDnsARecord', ajaxData, true);
+    sendAjax('addDnsARecord', ajaxData, true);
 }
 
 function deleteDnsRecord(domain, ip) {
@@ -60,5 +60,5 @@ function deleteDnsRecord(domain, ip) {
         'ip': ip,
         'token': now
     };
-    sendAjax('dns/deleteDnsARecord', ajaxData, true);
+    sendAjax('deleteDnsARecord', ajaxData, true);
 }
