@@ -17,7 +17,6 @@ import javax.annotation.Resource;
  * Created by Tianya on 2017/10/11.
  */
 @Controller
-@RequestMapping(value = "dns")
 public class DnsDeleteController {
 
     @Resource

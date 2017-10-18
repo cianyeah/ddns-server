@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
  * Created by Tianya on 2017/10/10.
  */
 @Controller
-@RequestMapping(value = "dns")
 public class DnsAddController {
 
     @Resource
