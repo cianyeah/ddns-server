@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by Tianya on 2017/10/10.
@@ -23,12 +24,19 @@ public class DnsAddController {
     @Resource
     private DnsAddManager dnsAddManager;
 
+    @Resource
+    private HttpServletRequest request;
+
     @RequestMapping(value = "addDnsARecord")
     @ResponseBody
     public ResultVO addDnsARecord(UpdateARecordVO updateARecordVO) {
         String domain = updateARecordVO.getDomain();
         String ip = updateARecordVO.getIp();
         String token = updateARecordVO.getToken();
+
+        if (StringUtils.isBlank(ip)) {
+            ip = this.getRemoteIp();
+        }
 
         if (StringUtils.isBlank(domain)) {
             return ResultVO.newErrorResult(DSErrorCodes.RECORD_DOMAIN_ERROR);
@@ -46,5 +54,31 @@ public class DnsAddController {
         } catch (Exception e) {
             return ResultVO.newErrorResult(ErrorTextUtil.getErrorText(e));
         }
+    }
+
+    private String getRemoteIp() {
+        String ip = request.getHeader("Cdn-Src-Ip");
+        if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("X-Forwarded-For");
+        }
+        if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("X-Real-IP");
+        }
+        if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (StringUtils.isBlank(ip) || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
     }
 }
