@@ -3,7 +3,6 @@ package com.aynait.ddns.core.manager;
 import com.aynait.ddns.core.exception.DSException;
 import com.aynait.ddns.core.model.DnsARecord;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.Collections;
@@ -31,11 +30,9 @@ public class DnsDeleteManager extends DnsManager {
         while (true) {
             try {
                 //获取最新的DNS记录
-                Set<DnsARecord> dnsARecordSet = fillNewARecord(domain, ip);
-                if (!CollectionUtils.isEmpty(dnsARecordSet)) {
-                    //写入DNS记录
-                    dnsWriteManager.writeARecord(dnsARecordSet);
-                }
+                Set<DnsARecord> dnsARecordSet = this.fillNewARecord(domain, ip);
+                //写入DNS记录
+                dnsWriteManager.writeARecord(dnsARecordSet);
                 break;
             } catch (DSException dsE) {
                 dsE.printStackTrace();

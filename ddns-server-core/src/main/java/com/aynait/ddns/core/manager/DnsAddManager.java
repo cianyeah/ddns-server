@@ -29,7 +29,7 @@ public class DnsAddManager extends DnsManager {
         while (true) {
             try {
                 //获取最新的DNS记录
-                Set<DnsARecord> dnsARecordSet = fillNewARecord(domain, ip);
+                Set<DnsARecord> dnsARecordSet = this.fillNewARecord(domain, ip);
                 //写入DNS记录
                 dnsWriteManager.writeARecord(dnsARecordSet);
                 break;
