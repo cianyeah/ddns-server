@@ -2,6 +2,8 @@
  * Created by Tianya on 2017/10/10.
  */
 
+var datePattern = 'YYYY-MM-DD HH:mm:ss';
+
 var ajaxSuccessText = '提交成功';
 var ajaxErrorText = '系统开小差，请稍后尝试';
 

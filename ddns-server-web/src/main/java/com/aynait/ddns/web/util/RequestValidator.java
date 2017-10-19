@@ -4,10 +4,16 @@ import com.aynait.ddns.core.common.DSConstant;
 import org.apache.commons.lang3.StringUtils;
 import sun.net.util.IPAddressUtil;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 /**
  * Created by Tianya on 2017/10/10.
  */
 public class RequestValidator {
+
+    private static final int SECOND_OFFSET = 10;
 
     /**
      * IP地址校验
@@ -59,6 +65,20 @@ public class RequestValidator {
      * Token校验
      */
     public static boolean checkToken(String token) {
-        return DSConstant.ADD_TOKEN.equals(token);
+        if (StringUtils.isBlank(token)) {
+            return false;
+        }
+
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DSConstant.DATE_FORMAT, Locale.CHINA);
+            LocalDateTime tokenTime = LocalDateTime.parse(token, formatter);
+            LocalDateTime time = LocalDateTime.now();
+            boolean leftOffset = tokenTime.plusSeconds(SECOND_OFFSET).isAfter(time);
+            boolean rightOffset = tokenTime.minusSeconds(SECOND_OFFSET).isBefore(time);
+            return leftOffset && rightOffset;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
