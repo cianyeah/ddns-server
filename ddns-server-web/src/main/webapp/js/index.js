@@ -2,6 +2,8 @@
  * Created by Tianya on 2017/10/10.
  */
 
+var token = 'Tianya';
+
 var body = $('body');
 var mainTable = body.find('#mainTable');
 
@@ -44,8 +46,6 @@ function fillDnsRecord(data) {
 
 function addDnsRecord() {
     var ajaxData = addRecordForm.serializeArray();
-    var now = moment().format(datePattern);
-    ajaxData.push({'name': 'token', 'value': now});
     sendAjax('addDnsARecord', ajaxData, true);
 }
 
@@ -54,11 +54,10 @@ function deleteDnsRecord(domain, ip) {
         return;
     }
 
-    var now = moment().format(datePattern);
     var ajaxData = {
         'domain': domain,
         'ip': ip,
-        'token': now
+        'token': token
     };
     sendAjax('deleteDnsARecord', ajaxData, true);
 }

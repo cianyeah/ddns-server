@@ -48,4 +48,9 @@ public class DSConstant {
      */
     public static final String EXEC_STOP_NAMED = "systemctl stop named";
     public static final String EXEC_START_NAMED = "systemctl start named";
+
+    /**
+     * token校验
+     */
+    public static final String ADD_TOKEN = "Tianya";
 }

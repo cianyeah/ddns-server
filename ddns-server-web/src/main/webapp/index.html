@@ -17,7 +17,6 @@
 
     <script type="text/javascript" src="jslib/jquery/jquery-3.2.1.min.js"></script>
     <script type="text/javascript" src="jslib/bootstrap/bootstrap-3.3.7.min.js"></script>
-    <script type="text/javascript" src="jslib/moment/moment-2.19.0.min.js"></script>
     <script type="text/javascript" src="jslib/spin.js"></script>
 
     <script defer type="text/javascript" src="js/loading.js"></script>
@@ -28,6 +27,7 @@
 <body>
 <div id="mainContent">
     <form class="form-horizontal" id="addRecordForm">
+        <input type="hidden" name="token" value="Tianya"/>
         <table class="table table-bordered table-condensed table-striped" id="mainTable">
             <thead>
             <tr>
@@ -57,6 +57,11 @@
             </tbody>
         </table>
     </form>
+</div>
+
+<div id="footContent">
+    <kbd>curl -s -i -H "Accept: application/json"
+        "http://centos.aynait.com:48080/ddns-server/addDnsARecord?domain=${domain}&ip=${ip}&token=${token}"</kbd>
 </div>
 </body>
 

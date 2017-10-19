@@ -9,3 +9,10 @@
     height: 46px;
     line-height: 2.3;
 }
+
+#footContent {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    text-align: center;
+}
