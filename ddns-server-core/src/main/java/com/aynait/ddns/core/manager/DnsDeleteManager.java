@@ -2,6 +2,7 @@ package com.aynait.ddns.core.manager;
 
 import com.aynait.ddns.core.exception.DSException;
 import com.aynait.ddns.core.model.DnsARecord;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -11,6 +12,7 @@ import java.util.Set;
 /**
  * Created by Tianya on 2017/10/11.
  */
+@Slf4j
 @Service
 public class DnsDeleteManager extends DnsManager {
 
@@ -24,7 +26,10 @@ public class DnsDeleteManager extends DnsManager {
      * 删除DNS记录
      */
     public void deleteARecord(String domain, String ip) throws Exception {
+        log.warn("DnsDeleteManager.deleteARecord domain:{} ip:{}", domain, ip);
+
         //停止DNS服务
+        log.info("DnsAddManager.addARecord stopping named service");
         super.stopNamed();
 
         while (true) {
@@ -35,20 +40,21 @@ public class DnsDeleteManager extends DnsManager {
                 dnsWriteManager.writeARecord(dnsARecordSet);
                 break;
             } catch (DSException dsE) {
-                dsE.printStackTrace();
+                log.error("DnsDeleteManager.deleteARecord throw Exception", dsE);
                 //未获取到文件锁，等待重试
                 Thread.sleep(3000L);
             }
         }
 
         //启动DNS服务
+        log.info("DnsAddManager.addARecord starting named service");
         super.startNamed();
     }
 
     /**
      * 删除指定的DNS记录
      */
-    private Set<DnsARecord> fillNewARecord(String domain, String ip) {
+    private Set<DnsARecord> fillNewARecord(String domain, String ip) throws Exception {
         DnsARecord dnsARecord = new DnsARecord();
         dnsARecord.setDomain(domain);
         dnsARecord.setIp(ip);

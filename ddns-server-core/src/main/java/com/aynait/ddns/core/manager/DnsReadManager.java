@@ -1,6 +1,8 @@
 package com.aynait.ddns.core.manager;
 
+import com.alibaba.fastjson.JSON;
 import com.aynait.ddns.core.model.DnsARecord;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +17,15 @@ import static com.aynait.ddns.core.common.DSConstant.*;
 /**
  * Created by Tianya on 2017/10/9.
  */
+@Slf4j
 @Service
 public class DnsReadManager extends DnsManager {
 
-    public Set<DnsARecord> readARecord() {
+    /**
+     * 读取DNS记录
+     */
+    public Set<DnsARecord> readARecord() throws Exception {
+        //检查文件是否存在
         super.checkFileExists();
 
         Set<DnsARecord> dnsARecordSet = new HashSet<>();
@@ -55,9 +62,10 @@ public class DnsReadManager extends DnsManager {
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("DnsReadManager.readARecord throw Exception", e);
         }
 
+        log.info("DnsReadManager.readARecord dnsARecordSet:{}", JSON.toJSONString(dnsARecordSet));
         return dnsARecordSet;
     }
 }

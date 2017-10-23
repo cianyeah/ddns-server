@@ -1,8 +1,10 @@
 package com.aynait.ddns.core.manager;
 
+import com.alibaba.fastjson.JSON;
 import com.aynait.ddns.core.exception.DSErrorCodes;
 import com.aynait.ddns.core.exception.DSException;
 import com.aynait.ddns.core.model.DnsARecord;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedWriter;
@@ -17,13 +19,16 @@ import static com.aynait.ddns.core.common.DSConstant.*;
 /**
  * Created by Tianya on 2017/10/11.
  */
+@Slf4j
 @Service
 public class DnsWriteManager extends DnsManager {
 
     /**
      * 写入DNS记录
      */
-    public void writeARecord(Set<DnsARecord> dnsARecordSet) throws Exception {
+    void writeARecord(Set<DnsARecord> dnsARecordSet) throws Exception {
+        log.warn("DnsWriteManager.writeARecord dnsARecordSet:{}", JSON.toJSONString(dnsARecordSet));
+
         //检查文件是否存在
         super.checkFileExists();
 
@@ -38,7 +43,7 @@ public class DnsWriteManager extends DnsManager {
                 throw new DSException(DSErrorCodes.FILE_LOCK_ERROR);
             }
 
-            writeToFile(bw, dnsARecordSet);
+            this.writeToFile(bw, dnsARecordSet);
         }
     }
 

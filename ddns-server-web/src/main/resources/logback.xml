@@ -1,0 +1,19 @@
+<configuration>
+    <property name="pattern" value="%d %p [%t] %c{20} %m%n"/>
+
+    <appender name="file-append" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.root}/ddns-server.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.root}/ddns-server.log.%d{yyyy-MM-dd}</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="file-append"/>
+    </root>
+
+</configuration>
