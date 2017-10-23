@@ -47,7 +47,7 @@ String.prototype.format = function (args) {
 function sendAjax(url, data, loading, method) {
     $.ajax({
         url: url,
-        type: 'POST',
+        type: 'GET',
         timeout: 5000,
         data: data,
         dataType: 'json',
