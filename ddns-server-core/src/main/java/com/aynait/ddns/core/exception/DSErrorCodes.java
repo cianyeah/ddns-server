@@ -24,7 +24,13 @@ public enum DSErrorCodes {
      */
     RECORD_DOMAIN_ERROR(30000, "域名不能为空"),
     RECORD_IP_ERROR(30001, "IP地址不合法"),
-    RECORD_TOKEN_ERROR(30002, "Token校验失败"),;
+    RECORD_TOKEN_ERROR(30002, "Token校验失败"),
+
+    /**
+     * DNS校验
+     */
+    STOP_NAMED_ERROR(40000, "停止DNS服务失败"),
+    START_NAMED_ERROR(40001, "启动DNS服务失败"),;
 
     private int code;
 

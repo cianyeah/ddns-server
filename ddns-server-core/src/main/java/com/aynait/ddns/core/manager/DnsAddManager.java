@@ -27,10 +27,6 @@ public class DnsAddManager extends DnsManager {
     public void addARecord(String domain, String ip) throws Exception {
         log.warn("DnsAddManager.addARecord domain:{} ip:{}", domain, ip);
 
-        //停止DNS服务
-        log.info("DnsAddManager.addARecord stopping named service");
-        super.stopNamed();
-
         while (true) {
             try {
                 //获取最新的DNS记录
@@ -45,9 +41,8 @@ public class DnsAddManager extends DnsManager {
             }
         }
 
-        //启动DNS服务
-        log.info("DnsAddManager.addARecord starting named service");
-        super.startNamed();
+        //重启DNS服务
+        super.restartNamed();
     }
 
     /**

@@ -1,6 +1,7 @@
 package com.aynait.ddns.core.manager;
 
 import com.aynait.ddns.core.exception.DSErrorCodes;
+import com.aynait.ddns.core.exception.DSException;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
@@ -25,26 +26,40 @@ public class DnsManager {
     }
 
     /**
+     * 重启DNS服务
+     */
+    void restartNamed() {
+        this.stopNamed();
+        this.startNamed();
+    }
+
+    /**
      * 停止DNS服务
      */
-    void stopNamed() {
+    private void stopNamed() {
+        log.info("DnsManager.stopNamed stopping named service");
         try {
             Process process = Runtime.getRuntime().exec(EXEC_STOP_NAMED);
             process.waitFor();
         } catch (Exception e) {
             log.error("DnsManager.stopNamed throw Exception", e);
+            throw new DSException(DSErrorCodes.STOP_NAMED_ERROR);
         }
+        log.info("DnsManager.stopNamed named service stopped");
     }
 
     /**
      * 启动DNS服务
      */
-    void startNamed() {
+    private void startNamed() {
+        log.info("DnsManager.startNamed starting named service");
         try {
             Process process = Runtime.getRuntime().exec(EXEC_START_NAMED);
             process.waitFor();
         } catch (Exception e) {
             log.error("DnsManager.startNamed throw Exception", e);
+            throw new DSException(DSErrorCodes.START_NAMED_ERROR);
         }
+        log.info("DnsManager.startNamed named service started");
     }
 }
