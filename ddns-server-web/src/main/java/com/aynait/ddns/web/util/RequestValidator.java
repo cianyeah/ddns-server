@@ -6,7 +6,6 @@ import sun.net.util.IPAddressUtil;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Locale;
 
 /**
  * Created by Tianya on 2017/10/10.
@@ -70,7 +69,7 @@ public class RequestValidator {
         }
 
         try {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DSConstant.DATE_FORMAT, Locale.CHINA);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DSConstant.DATE_FORMAT);
             LocalDateTime tokenTime = LocalDateTime.parse(token, formatter);
             LocalDateTime time = LocalDateTime.now();
             boolean leftOffset = tokenTime.plusSeconds(SECOND_OFFSET).isAfter(time);
