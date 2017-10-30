@@ -1,5 +1,6 @@
 package com.aynait.ddns.core.manager;
 
+import com.aynait.ddns.core.exception.DSErrorCodes;
 import com.aynait.ddns.core.exception.DSException;
 import com.aynait.ddns.core.model.DnsARecord;
 import lombok.extern.slf4j.Slf4j;
@@ -55,6 +56,12 @@ public class DnsAddManager extends DnsManager {
 
         Set<DnsARecord> dnsARecordSet = dnsReadManager.readARecord();
         if (!dnsARecordSet.add(dnsARecord)) {
+            for (DnsARecord dnsARecordExist : dnsARecordSet) {
+                if (dnsARecordExist.getDomain().equals(domain) && dnsARecordExist.getIp().equals(ip)) {
+                    throw new Exception(DSErrorCodes.DNS_RECORD_EXISTS.getMessage());
+                }
+            }
+
             dnsARecordSet.remove(dnsARecord);
             dnsARecordSet.add(dnsARecord);
         }

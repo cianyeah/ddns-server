@@ -30,7 +30,8 @@ public enum DSErrorCodes {
      * DNS校验
      */
     STOP_NAMED_ERROR(40000, "停止DNS服务失败"),
-    START_NAMED_ERROR(40001, "启动DNS服务失败"),;
+    START_NAMED_ERROR(40001, "启动DNS服务失败"),
+    DNS_RECORD_EXISTS(40002, "DNS记录已存在"),;
 
     private int code;
 
