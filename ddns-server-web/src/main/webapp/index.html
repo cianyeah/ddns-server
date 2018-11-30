@@ -60,10 +60,20 @@
 </div>
 
 <div id="footContent">
-    <kbd>rm -f /tmp/ddns_register.sh &&
-        wget -q -P /tmp "http://centos.aynait.com:48080/ddns-server/file/ddns_register.sh" &&
-        chmod 777 /tmp/ddns_register.sh &&
-        sh /tmp/ddns_register.sh "domain" &</kbd>
+    <p>
+        <kbd>rm -f /tmp/ddns_register.sh &&
+            wget -q -P /tmp "http://ddns-server.aynait.com:48080/ddns-server/file/ddns_register.sh" &&
+            chmod 777 /tmp/ddns_register.sh &&
+            sh /tmp/ddns_register.sh "domain" &</kbd>
+    </p>
+    <p>
+        <kbd>cru a aynait_ddns
+            "*/30 * * * * rm -f /tmp/ddns_register.sh &&
+            wget -q -P /tmp \"http://ddns-server.aynait.com:48080/ddns-server/file/ddns_register.sh\" &&
+            chmod 777 /tmp/ddns_register.sh &&
+            sh /tmp/ddns_register.sh \"domain\""</kbd>
+    </p>
+
 </div>
 </body>
 
