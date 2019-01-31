@@ -8,6 +8,7 @@
                                  http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http>
+        <intercept-url pattern="/file/ddns_register.sh" access="permitAll()"/>
         <intercept-url pattern="/**" access="isAuthenticated()"/>
         <csrf disabled="true"/>
         <http-basic/>
