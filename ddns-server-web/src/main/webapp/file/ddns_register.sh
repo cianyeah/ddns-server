@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 domain=$1
 token=$(date "+%Y-%m-%d %H:%M:%S")
