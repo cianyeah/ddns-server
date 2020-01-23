@@ -39,7 +39,7 @@ public class DSConstant {
      * zone文件配置
      */
     public static final String DNS_TTL = "$TTL 86400";
-    public static final String DNS_SOA = "@ IN SOA localhost. centos.aynait.com. (0 1D 1H 1W 3H)";
+    public static final String DNS_SOA = "@ IN SOA localhost. bwh.aynait.com. (0 1D 1H 1W 3H)";
     public static final String DNS_NS = " NS localhost.";
     public static final String DNS_A = " A ";
 
