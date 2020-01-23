@@ -18,7 +18,7 @@
     <properties>
         <finalName>ddns-server</finalName>
         <warName>${finalName}.war</warName>
-        <springframework.version>5.1.4.RELEASE</springframework.version>
+        <springframework.version>5.2.0.RELEASE</springframework.version>
         <spring.security.version>5.1.3.RELEASE</spring.security.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
